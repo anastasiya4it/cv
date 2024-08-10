@@ -1,0 +1,305 @@
+@import 'vars';
+@import 'fonts';
+@import 'reset';
+@import 'libs';
+@import 'global';
+
+.head {
+    margin: 20px auto 30px;
+    // display: flex;
+    // align-items: center;
+    // justify-content: center;
+    // gap: 10%;
+
+    &__img {
+        width: 115px;
+        height: 115px;
+        overflow: hidden;
+        object-fit: cover;
+        object-position: top;
+        margin: 0 auto 30px;
+    }
+
+    &__name {
+        text-align: center;
+        font-size: 30px;
+        font-family: "Rubik", sans-serif;
+    }
+
+    &__head {
+        margin-top: 15px;
+        display: flex;
+        justify-content: center;
+    }
+
+    &__location {
+        position: relative;
+        margin-left: 40px;
+
+        &::before {
+            content: " ";
+            position: absolute;
+            left: -20px;
+            top: 3px;
+            width: 20px;
+            height: 20px;
+            background-image: url(../images/location.svg);
+        }
+    }
+
+    &__phone {
+        position: relative;
+        margin-left: 40px;
+
+        &::before {
+            content: " ";
+            position: absolute;
+            left: -20px;
+            top: 3px;
+            width: 20px;
+            height: 20px;
+            background-image: url(../images/call.svg);
+        }
+    }
+}
+
+.main {
+    display: grid;
+    grid-template-columns: 30% 1fr;
+    gap: 3rem;
+}
+
+.leftside {
+    // margin: 0 10px;
+    text-align: center;
+}
+
+.details {
+    &__title {
+        @extend %title;
+        @extend %row;
+        margin-bottom: 20px;
+    }
+
+    &__link {
+        display: block;
+        color: #000;
+    }
+
+    &__list {
+        // display: inline-flex;
+        // flex-wrap: wrap;
+        // gap:20px;
+        text-align: start;
+    }
+}
+
+.skills {
+    margin: 60px 0 60px;
+
+    &__title {
+        @extend %title;
+        @extend %row;
+        margin-bottom: 20px;
+    }
+
+    &__list-btn {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        gap: 20px;
+    }
+
+    &__item-btn {
+        border-bottom: 1px solid rgba(0, 0, 0, .5);
+        border-radius: 10px;
+        padding: 0 8px;
+        font-size: 16px;
+    }
+
+    &__section {
+        padding-bottom: 20px !important;
+        margin-bottom: 20px;
+        @extend %line;
+    }
+}
+
+.languages {
+    margin: 40px 0;
+    text-align: center;
+
+    &__title {
+        @extend %title;
+        width: 100%;
+        @extend %row;
+    }
+
+    &__item {
+        margin-top: 20px;
+    }
+    &__item--title{
+        font-size: 12px;
+        line-height: auto;
+    }
+    &__item--num {
+        font-size: 14px;
+        line-height: auto;
+    }
+
+    &__item--text {
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid rgba(0, 0, 0, .5);
+        background-repeat: 4px;
+        border-radius: 10px;
+        padding: 6px 12px;
+    }
+
+    &__item--line {
+        height: 4px;
+        margin-top: -4px;
+        background-repeat: 4px;
+        background-color: #000000;
+        border-radius: 2px;
+        z-index: 2;
+    }
+}
+
+.rightside {
+    // margin: 0 30px 40px 30px;
+}
+
+.education,
+.profile,
+.links,
+.experience {
+    &__title {
+        @extend %title;
+        @extend %colom-img;
+    }
+
+    &__text {
+        @extend %colom-line;
+    }
+}
+
+.experience {
+    margin-top: 30px;
+
+    &__title {
+        &::after {
+            background-image: url(../images/experience.png);
+        }
+    }
+
+    &__text {
+        margin-bottom: 20px;
+
+        &::before {
+            height: 82%;
+
+        }
+    }
+
+    &__name {
+        font-weight: 700;
+        line-height: auto;
+    }
+
+    &__name-subunit {
+        font-weight: 500;
+        line-height: auto;
+    }
+
+    &__start-end {
+        color: rgba(0, 0, 0, 0.5);
+    }
+}
+
+.education {
+    margin-top: 30px;
+
+    &__title {
+        &::after {
+            background-image: url(../images/school.svg);
+        }
+    }
+
+    &__text {
+        &::before {
+            height: 82%;
+        }
+    }
+
+    &__school {
+        font-weight: 600;
+    }
+
+    &__start-end {
+        color: rgba(0, 0, 0, 0.5);
+    }
+}
+
+.links {
+    margin-top: 30px;
+
+    &__title {
+
+        &::after {
+            background-image: url(../images/link.svg);
+
+        }
+    }
+
+    &__text {
+        &::before {
+            height: 71%;
+        }
+    }
+
+    &__item {
+        display: block;
+        color: #000;
+        line-height: 30px;
+    }
+}
+@media(max-width: 768px) {
+    .main {
+        grid-template-columns: 1fr;
+    }
+    .head{&__head{
+        font-size: small;
+    }}
+    .leftside {
+        margin: 0;
+        order: 2;
+    }
+    .rightside {
+        margin: 0;
+    }
+    .skills,.details,.languages,.education,
+    .profile,
+    .links,
+    .experience  {
+        &__title{
+margin-bottom: 10px;
+text-align: left;
+        }
+    }
+}
+@media(max-width: 500px) {
+    .head{
+        &__name{
+            font-size: 24px;
+        }
+        &__head{
+        flex-direction: column;
+        font-size: medium;
+    }
+    &__location,&__phone,&__job{
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+}
+}
